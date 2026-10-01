@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chaudhary Marble | Basti</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0b0b;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --gold:#d4af63;
+    --gold-light:#f3d58b;
+    --black:#080808;
+    --white:#fff;
+    --gray:#aaa;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    z-index:1000;
+
+    background:rgba(5,5,5,.75);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#ddd;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-button{
+    padding:12px 20px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    transition:.3s;
+}
+
+.nav-button:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:130px 7% 80px;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at 80% 40%,#4d3b1c55,transparent 35%),
+    #080808;
+}
+
+
+/* Animated golden circle */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    right:-200px;
+    top:100px;
+
+    border-radius:50%;
+
+    border:1px solid #d4af6340;
+
+    animation:rotate 20s linear infinite;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    right:-100px;
+    top:200px;
+
+    border-radius:50%;
+
+    border:1px solid #d4af6325;
+
+    animation:rotate 15s linear infinite reverse;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* Hero content */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:850px;
+}
+
+.small-title{
+    color:var(--gold);
+
+    font-size:13px;
+    letter-spacing:5px;
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+    animation:fadeUp .8s ease;
+}
+
+.hero h1{
+    font-size:clamp(55px,8vw,115px);
+
+    line-height:.9;
+
+    letter-spacing:-5px;
+
+    margin-bottom:35px;
+
+    animation:fadeUp 1s ease;
+}
+
+.hero h1 span{
+    color:transparent;
+
+    -webkit-text-stroke:1px var(--gold);
+
+    transition:.5s;
+}
+
+.hero h1 span:hover{
+    color:var(--gold);
+}
+
+.hero-description{
+    max-width:570px;
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    animation:fadeUp 1.2s ease;
+}
+
+.hero-buttons{
+    margin-top:35px;
+
+    display:flex;
+    gap:15px;
+
+    animation:fadeUp 1.4s ease;
+}
+
+.btn{
+    padding:16px 28px;
+
+    background:var(--gold);
+
+    color:#000;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#fff;
+
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    background:transparent;
+
+    color:#fff;
+
+    border:1px solid #555;
+}
+
+.btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    background:transparent;
+}
+
+
+/* Floating marble text */
+
+.floating-text{
+    position:absolute;
+
+    right:8%;
+    bottom:13%;
+
+    font-size:14px;
+
+    letter-spacing:7px;
+
+    color:#555;
+
+    writing-mode:vertical-rl;
+
+    z-index:2;
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+    overflow:hidden;
+
+    background:var(--gold);
+
+    color:#000;
+
+    padding:17px 0;
+
+    white-space:nowrap;
+}
+
+.marquee-track{
+    display:inline-block;
+
+    animation:marquee 18s linear infinite;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+}
+
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    padding:130px 8%;
+
+    background:#111;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.label{
+    color:var(--gold);
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+}
+
+.intro h2{
+    font-size:55px;
+
+    line-height:1;
+
+    margin-bottom:25px;
+}
+
+.intro p{
+    color:#999;
+
+    line-height:1.9;
+
+    font-size:16px;
+}
+
+.intro-number{
+    font-size:180px;
+
+    font-weight:900;
+
+    color:transparent;
+
+    -webkit-text-stroke:1px #ffffff18;
+
+    text-align:center;
+
+    user-select:none;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    padding:130px 6%;
+
+    background:#080808;
+}
+
+.section-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:60px;
+}
+
+.section-head h2{
+    font-size:65px;
+
+    letter-spacing:-3px;
+}
+
+.section-head p{
+    color:#777;
+
+    max-width:350px;
+
+    line-height:1.6;
+}
+
+
+/* Product grid */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+}
+
+.product{
+    height:500px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background-size:cover;
+    background-position:center;
+
+    transition:.5s;
+}
+
+.product::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        transparent 30%,
+        rgba(0,0,0,.9)
+    );
+
+    transition:.4s;
+}
+
+.product:hover{
+    transform:translateY(-12px);
+}
+
+.product:hover::before{
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    );
+}
+
+.product:nth-child(1){
+    background:
+    url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90")
+    center/cover;
+}
+
+.product:nth-child(2){
+    background:
+    url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=90")
+    center/cover;
+}
+
+.product:nth-child(3){
+    background:
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=90")
+    center/cover;
+}
+
+.product:nth-child(4){
+    background:
+    url("https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=90")
+    center/cover;
+}
+
+.product-info{
+    position:absolute;
+
+    bottom:30px;
+    left:30px;
+
+    z-index:2;
+}
+
+.product-number{
+    color:var(--gold);
+
+    font-size:12px;
+
+    letter-spacing:3px;
+}
+
+.product h3{
+    font-size:34px;
+
+    margin-top:8px;
+}
+
+.product-info p{
+    color:#aaa;
+
+    margin-top:8px;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.why{
+    padding:130px 8%;
+
+    background:#f0ede7;
+
+    color:#111;
+}
+
+.why h2{
+    font-size:65px;
+
+    max-width:700px;
+
+    line-height:1;
+
+    margin-bottom:70px;
+}
+
+.features{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:50px;
+}
+
+.feature{
+    border-top:1px solid #111;
+
+    padding-top:25px;
+}
+
+.feature span{
+    color:#999;
+
+    font-size:13px;
+}
+
+.feature h3{
+    font-size:27px;
+
+    margin:20px 0 15px;
+}
+
+.feature p{
+    color:#666;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:130px 8%;
+
+    text-align:center;
+
+    background:
+    radial-gradient(circle,#46361955,transparent 45%),
+    #090909;
+}
+
+.cta h2{
+    font-size:clamp(50px,7vw,95px);
+
+    line-height:.95;
+
+    margin-bottom:30px;
+}
+
+.cta h2 span{
+    color:var(--gold);
+}
+
+.cta p{
+    color:#888;
+
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    padding:120px 8%;
+
+    background:#111;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+}
+
+.contact h2{
+    font-size:60px;
+
+    line-height:1;
+
+    margin-bottom:30px;
+}
+
+.contact-info{
+    color:#999;
+
+    line-height:2;
+}
+
+.contact-info strong{
+    display:block;
+
+    color:#fff;
+
+    margin-top:25px;
+}
+
+.contact-info a:hover{
+    color:var(--gold);
+}
+
+form{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+input,
+textarea{
+    background:#080808;
+
+    border:1px solid #333;
+
+    color:white;
+
+    padding:18px;
+
+    outline:none;
+
+    font-family:inherit;
+}
+
+textarea{
+    min-height:150px;
+
+    resize:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:var(--gold);
+}
+
+form button{
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px;
+
+    background:var(--gold);
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:50px 8%;
+
+    background:#050505;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    border-top:1px solid #222;
+}
+
+.footer-logo{
+    font-size:25px;
+
+    font-weight:bold;
+}
+
+.footer-logo span{
+    color:var(--gold);
+}
+
+footer p{
+    color:#666;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    z-index:2000;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#25D366;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 30px #0008;
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.12);
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links,
+    .nav-button{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        padding-left:6%;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .intro,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .intro-number{
+        font-size:100px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-head h2{
+        margin-bottom:20px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    nav{
+        height:70px;
+    }
+
+    .hero{
+        min-height:100vh;
+
+        padding:110px 6% 70px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product{
+        height:420px;
+    }
+
+    .section-head h2,
+    .why h2,
+    .contact h2{
+        font-size:45px;
+    }
+
+    .intro{
+        padding:90px 7%;
+    }
+
+    .products,
+    .why,
+    .contact{
+        padding:90px 6%;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        CHAUDHARY <span>MARBLE</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#products">Collection</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <a
+        href="tel:+919236029576"
+        class="nav-button">
+        Call Now
+    </a>
+
+    <div class="menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            PREMIUM MARBLE • GRANITE • TILES
+        </div>
+
+        <h1>
+            MAKE YOUR<br>
+            <span>SPACE</span><br>
+            ICONIC.
+        </h1>
+
+        <p class="hero-description">
+
+            Discover premium surfaces and timeless designs
+            for homes, offices and commercial spaces.
+
+            <br><br>
+
+            <b>Chaudhary Marble — Basti</b>
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="btn">
+                VIEW COLLECTION
+            </a>
+
+            <a
+                href="https://wa.me/919236029576"
+                target="_blank"
+                class="btn btn-outline">
+
+                WHATSAPP US
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="floating-text">
+        CHẠUDHARY MARBLE • BASTI • 2026
+    </div>
+
+</section>
+
+
+<!-- ================= MARQUEE ================= -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        PREMIUM MARBLE ✦ GRANITE ✦ TILES ✦
+        SANITARYWARE ✦ PREMIUM MARBLE ✦
+        GRANITE ✦ TILES ✦ SANITARYWARE ✦
+
+    </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="intro" id="about">
+
+    <div>
+
+        <div class="label">
+            ABOUT CHÂUDHARY MARBLE
+        </div>
+
+        <h2>
+            MATERIALS THAT
+            MAKE A STATEMENT.
+        </h2>
+
+        <p>
+
+            Your space deserves more than ordinary.
+
+            At Chaudhary Marble Basti, we help you
+            choose quality marble, granite, tiles and
+            surface materials for beautiful interiors.
+
+            <br><br>
+
+            From elegant homes to commercial projects,
+            our goal is simple — quality products,
+            better choices and satisfied customers.
+
+        </p>
+
+    </div>
+
+    <div class="intro-number">
+        01
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products" id="products">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="label">
+                OUR COLLECTION
+            </div>
+
+            <h2>
+                EXPLORE
+                <br>
+                MATERIALS.
+            </h2>
+
+        </div>
+
+        <p>
+
+            Explore our range of premium materials
+            designed to transform ordinary spaces
+            into something remarkable.
+
+        </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+
+        <div class="product">
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    01 / COLLECTION
+                </div>
+
+                <h3>Marble</h3>
+
+                <p>
+                    Timeless elegance
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    02 / COLLECTION
+                </div>
+
+                <h3>Granite</h3>
+
+                <p>
+                    Strength meets style
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    03 / COLLECTION
+                </div>
+
+                <h3>Tiles</h3>
+
+                <p>
+                    Modern surface designs
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    04 / COLLECTION
+                </div>
+
+                <h3>Sanitary</h3>
+
+                <p>
+                    Complete your bathroom
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY ================= -->
+
+<section class="why">
+
+    <div class="label">
+        WHY CHOOSE US
+    </div>
+
+    <h2>
+        QUALITY IS NOT
+        A LUXURY.
+        IT'S OUR STANDARD.
+    </h2>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <span>01</span>
+
+            <h3>Quality</h3>
+
+            <p>
+                Carefully selected materials
+                for your residential and
+                commercial requirements.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <span>02</span>
+
+            <h3>Variety</h3>
+
+            <p>
+                Multiple styles, textures,
+                colours and materials
+                for different interiors.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <span>03</span>
+
+            <h3>Guidance</h3>
+
+            <p>
+                Get assistance in selecting
+                suitable materials for your
+                project.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="label">
+        YOUR SPACE. YOUR STYLE.
+    </div>
+
+    <h2>
+        READY TO MAKE
+        <span>IT BEAUTIFUL?</span>
+    </h2>
+
+    <p>
+        Talk to Chaudhary Marble Basti about your next project.
+    </p>
+
+    <a
+        href="https://wa.me/919236029576"
+        target="_blank"
+        class="btn">
+
+        START A CONVERSATION
+
+    </a>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div>
+
+        <div class="label">
+            GET IN TOUCH
+        </div>
+
+        <h2>
+            LET'S TALK
+            ABOUT YOUR
+            PROJECT.
+        </h2>
+
+        <div class="contact-info">
+
+            <strong>PHONE</strong>
+
+            <a href="tel:+919236029576">
+                +91 92360 29576
+            </a>
+
+
+            <strong>EMAIL</strong>
+
+            <a href="mailto:chaudharymarble40@gmail.com">
+                chaudharymarble40@gmail.com
+            </a>
+
+
+            <strong>LOCATION</strong>
+
+            Basti, Uttar Pradesh, India
+
+        </div>
+
+    </div>
+
+
+    <form onsubmit="sendMessage(event)">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+        >
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email Address"
+        >
+
+        <textarea
+            id="message"
+            placeholder="Tell us about your project..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            SEND ENQUIRY →
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        CHAUDHARY <span>MARBLE</span>
+    </div>
+
+    <p>
+        © 2026 Chaudhary Marble Basti.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+    href="https://wa.me/919236029576"
+    target="_blank"
+    class="whatsapp">
+
+    WA
+
+</a>
+
+
+<script>
+
+function toggleMenu(){
+
+    const menu =
+        document.querySelector(".nav-links");
+
+    menu.style.display =
+        menu.style.display === "flex"
+        ? "none"
+        : "flex";
+
+}
+
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const message =
+        document.getElementById("message").value;
+
+
+    const text =
+`Hello Chaudhary Marble Basti,
+
+Name: ${name}
+
+Phone: ${phone}
+
+Requirement:
+${message}`;
+
+
+    const url =
+        "https://wa.me/919236029576?text="
+        + encodeURIComponent(text);
+
+
+    window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
